@@ -78,3 +78,14 @@
 	ELSE 'D'
 	END AS 工资级别
 	FROM employees;
+===========================================================
+# 分组函数
+1. 简单使用
+	SELECT SUM(salary) 和,ROUND(AVG(salary),2) 平均,MAX(salary) 最高,MIN(salary) 最低,COUNT(salary) 个数
+FROM employees;
+2. 和distinct搭配
+	SELECT SUM(DISTINCT salary),SUM(salary) FROM employees;
+	SELECT COUNT(DISTINCT salary),COUNT(salary) FROM employees;
+3. 和分组函数一同查询的字段有限制
+	SELECT AVG(salary),employee_id  FROM employees; --不推荐使用这种查询方式，分组函数只返回一行
+	
